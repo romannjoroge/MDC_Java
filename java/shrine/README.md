@@ -53,6 +53,30 @@ The **android:text** attribute is used to specify the text that will be displaye
 
 The forms and buttons can be seen on the login page of the Shrine App.
 
+### AppBar
+We add an appbar using the AppBarLayout and ToolBar MDC components. The toolbar contains the menus and text that is seen on the appbar. An example of this is shown below:
+```xml
+<com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/Widget.Shrine.Toolbar"
+            app:title="@string/shr_app_name"
+            app:navigationIcon="@drawable/shr_menu"
+            />
+    
+</com.google.android.material.appbar.AppBarLayout>
+```
+**app:title** is used to set the title seen on the app bar.
+**app:navigationIcon** is used to set what icon to use for navigation
+
+A menu is added programmatically to the toolbar. [MDC Toolbar Tutorial](https://codelabs.developers.google.com/codelabs/mdc-102-java/index.html#2) explains how this is done. The implemented code can be seen in the ProductGridFragment.java file.
+
+
 ## Connceting Layout To Logic In Activities
 ### Listening to Events
 To listen to an event you need to **create an event listener** in the **onCreate()** or **onCreateView()** methods of your Activity or Fragment respectively.
