@@ -76,6 +76,50 @@ We add an appbar using the AppBarLayout and ToolBar MDC components. The toolbar 
 
 A menu is added programmatically to the toolbar. [MDC Toolbar Tutorial](https://codelabs.developers.google.com/codelabs/mdc-102-java/index.html#2) explains how this is done. The implemented code can be seen in the ProductGridFragment.java file.
 
+### MaterialCard
+This is used to display content and actions on a single subject. They're a flexible way to present similar content as a collection
+
+An example implementation of a card:
+```xml
+<com.google.android.material.card.MaterialCardView
+        android:layout_width="160dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        app:cardBackgroundColor="?attr/colorPrimaryDark"
+        app:cardCornerRadius="10dp"
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="8dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shr_product_title"
+                android:padding="2dp"
+                android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="@string/shr_product_description"
+                android:textAppearance="?attr/textAppearanceBody2"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+</com.google.android.material.card.MaterialCardView>
+```
 
 ## Connceting Layout To Logic In Activities
 ### Listening to Events
