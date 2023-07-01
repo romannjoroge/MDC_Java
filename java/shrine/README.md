@@ -52,3 +52,28 @@ An example of how it is used is here:
 The **android:text** attribute is used to specify the text that will be displayed on the button.
 
 The forms and buttons can be seen on the login page of the Shrine App.
+
+## Connceting Layout To Logic In Activities
+### Listening to Events
+To listen to an event you need to **create an event listener** in the **onCreate()** or **onCreateView()** methods of your Activity or Fragment respectively.
+
+To create an event listener we do the following:
+1. **Get The Widget You Want To Listen To** - We get the widget that we want to listen to using the findViewById() command. 
+2. **Create The Listener** - We create the listener for the event that we want. In this example we create an onClick listener
+```java
+public class Activity extends Activity{
+    @Override
+    public void onCreate(Bundle savedInstance) {
+        // Some code
+        
+        MaterialButton nextButton = view.findViewById(R.id.next_button);
+        
+        nextButton.setOnClickListener(new View.onClickListener() {
+           @Override
+           public void onClick(View v) {
+               // Perform some logic
+           } 
+        });
+    }
+}
+```
