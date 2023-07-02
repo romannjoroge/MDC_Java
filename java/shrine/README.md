@@ -145,3 +145,24 @@ public class Activity extends Activity{
     }
 }
 ```
+
+# Some Common Libraries
+## Volley
+Volley library is used to handle networking in Android.
+
+It is able to:
+1. Make HTTP Requests
+2. Cache results to the response
+
+To use volley we do the following:
+1. Add the dependency by adding the following to build.gradle in the dependencies section i.e 
+```gradle
+dependencies {
+    //
+    implementation 'code.android.volley:volley:1.0.0'
+}
+```
+2. Add the internet permission in the manifest
+```xml
+<uses-permission android:name='android.permission.INTERNET' />
+```
