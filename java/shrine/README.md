@@ -166,3 +166,56 @@ dependencies {
 ```xml
 <uses-permission android:name='android.permission.INTERNET' />
 ```
+
+Volley also comes with some prebuilt widgets like the NetworkImage that makes it easy to get images from the internet and add them to your layout
+```xml
+<com.android.volley.toolbox.NetworkImageView
+    android:id="@+id/product_image"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/shr_product_card_image_height"
+    android:background="?attr/colorPrimaryDark"
+    android:scaleType="centerCrop"/>
+```
+
+# Miscellaneous
+## Adapter
+Adapters are objects that bridge the gap between data and our UI. Let's say we want to display a list of all the cars that are in a particular database. To do this we would need to **get the data from the database and give it to our list to display**. This is what the Adapter does.
+
+Adapters **get data from a data source and sends the data to an AdapterView**. AdapterView are UI elements that display the data gotten from an Adapter. There are different types of AdapterViews:
+1. **ListView** - takes the data and presents it as a column
+2. **GridView** - takes the data and presents it as a grid or table
+3. **Spinner** - takes the data and puts it in things like dropdowns. They are used when you want to give the user a choice to pick items from a list.
+
+## RecyclerView API
+Info gotten from this [site](https://www.grokkingandroid.com/first-glance-androids-recyclerview/)
+
+This API is used when we want to display data that changes on runtime due to user actions or network events
+
+This API was created to deal with cases where one has to display more data than can be fit on the screen. What it does is that it allows the device to **reuse and recycle** views once they are no longer visible rather than storing all of them in memory.
+
+Some of the classes provided in the API include:
+1. **Adapter** - this is used to get the data to put in the view from a data source. It is also responsible for the correct layout of individual items. It has 3 methods that need to be implemented:
+```java
+public VH onCreateViewHolder(ViewGroup parent, int viewType)
+public void onBindViewHolder(VH holder, int position)
+public int getItemCount()
+```
+2. **ViewHolder** - acts as a cache of View Objects
+3. **LayoutManager** - responsible for the layout of all child views.
+4. **itemDecoration** - can add an offset to each item, modify the item etc. A recyclerView can have multiple itemDecorations. ItemDecoration has the following methods:
+```java
+public void onDraw(Canvas c, RecyclerView parent)
+public void onDrawOver(Canvas c, RecyclerView parent)
+public void getItemOffsets(Rect outRect, int itemPosition, RecyclerView parent)
+```
+5. **itemAnimator** - is used to deal with the animation of items when they are added to a dataset, removed from a dataset, moves as a result of one of the previous operations. There is a default itemAnimator provided.
+
+The general process of using recyclerView is to:
+1. Add the RecyclerView widget to the XML
+2. Get the view in the Java code
+3. Create a layout manager and add it to the recyclerView.
+4. If all items will be of the same size set setHasFixedSize to true.
+5. Create an adapter and add it to recyclerView.
+6. Create itemDecorations if needed and add to recyclerView
+7. Create animator if needed or set recyclerView's animator to the default.
+8. Create listeners if needed and add to recyclerView
